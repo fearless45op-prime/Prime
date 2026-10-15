@@ -36,12 +36,12 @@ var (
 	StringSessions = getEnvStrings("STRING_SESSIONS")
 
 	// Optional
-	DBName        = getEnv("DB_NAME", "MeowMusic")
+	DBName        = getEnv("DB_NAME", "Cluster0")
 	SessionType   = getEnv("SESSION_TYPE", "pyrogram")
 	LoggerID      = getEnvInt64("LOGGER_ID", 0)
-	OwnerID       = getEnvInt64("OWNER_ID", 0)
-	OwnerUsername = getEnv("OWNER_USERNAME", "")
-	DevURL        = getEnv("DEV_URL", getEnv("DEVELOPER_URL", ""))
+	OwnerID       = getEnvInt64("OWNER_ID", "7915543522")
+	OwnerUsername = getEnv("OWNER_USERNAME", "Prime_Fearless_45")
+	DevURL        = getEnv("DEV_URL", getEnv("DEVELOPER_URL", "https://t.me/Prime_Fearless_45"))
 	DisableColour = getEnvBool("DISABLE_COLOUR", false)
 	MeowAPIURL    = getEnv("MEOW_API_URL", "https://music.yukiapi.site")
 	MeowAPIKey    = getEnv("MEOW_API_KEY")
@@ -51,8 +51,8 @@ var (
 	LeaveOnDemoted = getEnvBool("LEAVE_ON_DEMOTED", false)
 	QueueLimit     = getEnvInt("QUEUE_LIMIT", 24)
 
-	SupportChat    = getEnv("SUPPORT_CHAT", "https://t.me/MeowClone")
-	SupportChannel = getEnv("SUPPORT_CHANNEL", "https://t.me/Meowcloner")
+	SupportChat    = getEnv("SUPPORT_CHAT", "https://t.me/SPARK_X_NETWORK")
+	SupportChannel = getEnv("SUPPORT_CHANNEL", "https://t.me/SPARK_X_NETWORK_OP")
 	CookiesLink    = getEnv("COOKIES_LINK", "")
 	SetCmds        = getEnvBool("SET_CMDS", false)
 	MaxAuthUsers   = getEnvInt("MAX_AUTH_USERS", 25)
@@ -61,12 +61,12 @@ var (
 
 	PingImage = getEnv(
 		"PING_IMG_URL",
-		"https://telegra.ph/file/91533956c91d0fd7c9f20.jpg",
+		"https://files.catbox.moe/uk38b6.png",
 	)
 
 	RepoImage = getEnv(
 		"REPO_IMG_URL",
-		"https://yukiapi.site/file/6RldzdNt",
+		"https://files.catbox.moe/qt0kxe.png",
 	)
 
 	Port = getEnv("PORT", "8000")
@@ -91,7 +91,7 @@ func Load() error {
 	}
 
 	if len(StartImages) == 0 {
-		if img := getEnv("START_IMG_URL"); img != "" {
+		if img := getEnv("START_IMG_URL"); img != "https://files.catbox.moe/7559vm.png" {
 			StartImages = []string{img}
 		}
 	}
