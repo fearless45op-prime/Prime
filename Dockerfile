@@ -1,4 +1,4 @@
-FROM golang:1.26.0-bookworm AS builder
+FROM golang:1.26.2-bookworm AS builder
 
 WORKDIR /build
 
@@ -16,10 +16,12 @@ RUN go mod tidy
 COPY install.sh ./
 COPY . .
 
-RUN mkdir -p /build/config/cookies && \
-    chmod +x install.sh && \
-    ./install.sh -n -t --quiet --skip-summary && \
-    CGO_ENABLED=1 go build -v -trimpath -ldflags="-w -s" -o app ./cmd/app/
+RUN mkdir -p /build/config/cookies
+
+RUN chmod +x install.sh && \
+    ./install.sh -n -t --quiet --skip-summary
+
+RUN CGO_ENABLED=1 go build -v -trimpath -ldflags="-w -s" -o app ./cmd/app/
 
 
 FROM debian:bookworm-slim
