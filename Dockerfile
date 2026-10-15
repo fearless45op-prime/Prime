@@ -21,8 +21,7 @@ RUN mkdir -p /build/config/cookies
 RUN chmod +x install.sh && \
     ./install.sh -n -t --quiet --skip-summary
 
-RUN CGO_ENABLED=1 go build -v -trimpath -ldflags="-w -s" -o app ./cmd/app/
-
+RUN CGO_ENABLED=1 go build -x -v -trimpath -ldflags="-w -s" -o app ./cmd/app/ 2>&1 || (echo "===== ACTUAL GO BUILD ERROR =====" && exit 1)
 
 FROM debian:bookworm-slim
 
